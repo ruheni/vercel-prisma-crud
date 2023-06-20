@@ -13,8 +13,10 @@
 			<article>
 				<header>{article.title}</header>
 				<p>{article.content}</p>
-				<button class="outline secondary">Delete Article</button>
-				<a href="/" class="outline contrast">Edit Article</a>
+				<form action="?/deleteArticle&id={article.id}" method="POST">
+					<button type="submit" class="outline secondary">Delete Article</button>
+				</form>
+				<a href="/{article.id}" class="outline contrast">Edit Article</a>
 			</article>
 		{/each}
 	</div>
