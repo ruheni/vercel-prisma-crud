@@ -3,11 +3,19 @@
 </script>
 
 <div class="container">
-	<hgroup>
-		<h1>
-			<a href="/"> SvelteKit & Prisma 🔥</a>
-		</h1>
-		<h2>Let's build a basic CRUD application with SvelteKit & Prisma.</h2>
-	</hgroup>
+	<nav>
+		<ul>
+			<li>
+				<strong>
+					<a href="/">Paradiso</a>
+				</strong>
+			</li>
+		</ul>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/register">Register</a></li>
+			<li><a href="/login" role="button">Login</a></li>
+		</ul>
+	</nav>
 	<slot />
 </div>
