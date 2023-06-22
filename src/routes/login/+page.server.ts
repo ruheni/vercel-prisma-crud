@@ -2,13 +2,15 @@ import { redirect, type Actions, fail } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { auth } from '$lib/server/lucia';
 
-export const load: PageServerLoad = async ({ locals }) => {
-	const session = await locals.auth.validate();
-	if (session) {
-		console.log('---SESSION EXISTS---');
-		throw redirect(302, '/');
-	} else {
-		console.log('Session is NULL');
+export const load: PageServerLoad = async ({ cookies }) => {
+	// const session = await locals.auth.validate();
+
+	const sessionCookie = cookies.get('auth_session');
+	if (sessionCookie != undefined) {
+		const session = await auth.validateSession(sessionCookie);
+		if (session) {
+			throw redirect(302, '/');
+		}
 	}
 };
 
